@@ -8,3 +8,13 @@ for(let i = 0; i < 16 * 16; i++) {
 	div.classList.add('square');
 	container.appendChild(div);
 }
+
+const squares = document.querySelectorAll('.square');
+
+for(var i = 0; i < squares.length; i++) {
+	squares[i].addEventListener('mouseover', changeColor);
+}
+
+function changeColor(e) {
+	e.target.style.background = blue;
+}
