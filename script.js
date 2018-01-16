@@ -16,5 +16,5 @@ for(var i = 0; i < squares.length; i++) {
 }
 
 function changeColor(e) {
-	e.target.style.background = blue;
+	e.target.style.color = blue;
 }
