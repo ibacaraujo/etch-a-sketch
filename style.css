@@ -8,6 +8,10 @@
 	border: 1px solid #404040;
 }
 
+.container {
+	max-width: 960px;
+}
+
 .colored {
 	color: blue;
 }

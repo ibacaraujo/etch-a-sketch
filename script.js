@@ -11,10 +11,33 @@ for(let i = 0; i < 16 * 16; i++) {
 
 const squares = document.querySelectorAll('.square');
 
-for(var i = 0; i < squares.length; i++) {
-	squares[i].addEventListener('mouseover', changeColor);
-}
+squares.forEach((square) => {
+	square.addEventListener("mouseover", changeColor);
+});
 
 function changeColor(e) {
-	e.target.style.color = blue;
+	e.target.setAttribute('style', 'background: blue');
+}
+
+const btn = document.querySelector('button');
+
+btn.addEventListener("click", clearGrid);
+
+function clearGrid(e) {
+	squares.forEach((square) => {
+		square.style.removeProperty("background");
+	});
+
+	let gridSquares = prompt("How many squares per side do you want for the new grid?");
+
+	while (container.firstChild) {
+		container.removeChild(container.firstChild);
+	}
+
+	for(let i = 0; i < gridSquares * gridSquares; i++) {
+		const div = document.createElement('div');
+		console.log(div);
+		div.classList.add('square');
+		container.appendChild(div);
+	}
 }
