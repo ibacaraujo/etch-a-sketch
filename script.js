@@ -29,6 +29,8 @@ function clearGrid(e) {
 	});
 
 	let gridSquares = prompt("How many squares per side do you want for the new grid?");
+	let width = (100 / gridSquares);
+	let height = (100 / gridSquares);
 
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
@@ -40,4 +42,10 @@ function clearGrid(e) {
 		div.classList.add('square');
 		container.appendChild(div);
 	}
+
+	const newSquares = document.querySelectorAll('.square');
+
+	newSquares.forEach((square) => {
+		square.addEventListener("mouseover", changeColor);
+	});
 }
