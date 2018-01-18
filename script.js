@@ -12,11 +12,15 @@ for(let i = 0; i < 16 * 16; i++) {
 const squares = document.querySelectorAll('.square');
 
 squares.forEach((square) => {
+	square.setAttribute("style", "width: 80px; height: 80px");
+});
+
+squares.forEach((square) => {
 	square.addEventListener("mouseover", changeColor);
 });
 
 function changeColor(e) {
-	e.target.setAttribute('style', 'background: blue');
+	e.target.setAttribute('style', 'background: blue;' + ' width: ' + width + 'px; height: ' + height);
 }
 
 const btn = document.querySelector('button');
@@ -29,8 +33,8 @@ function clearGrid(e) {
 	});
 
 	let gridSquares = prompt("How many squares per side do you want for the new grid?");
-	let width = (100 / gridSquares);
-	let height = (100 / gridSquares);
+	let width = 960/gridSquares;
+	let height = 960/gridSquares;
 
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
@@ -44,6 +48,10 @@ function clearGrid(e) {
 	}
 
 	const newSquares = document.querySelectorAll('.square');
+
+	newSquares.forEach(square => {
+		square.setAttribute("style", "width: " + width + "px; height: " + height + "px");
+	});
 
 	newSquares.forEach((square) => {
 		square.addEventListener("mouseover", changeColor);
